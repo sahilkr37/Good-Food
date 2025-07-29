@@ -3,11 +3,11 @@ import { useEffect, useState } from 'react'
 import { restaurantImageLink } from "../utils/constants"
 
 
-const RestaurantCard = ({ restaurants }) => {
+const RestaurantCard = ({ filteredRestaurants }) => {
 
     return (
         <>
-            {restaurants.map((res) => {
+            {filteredRestaurants.map((res) => {
                 const {
                     id,
                     name,
@@ -50,18 +50,18 @@ const RestaurantCard = ({ restaurants }) => {
     )
 };
 
-const RestaurantSection = () => {
-    const [restaurants, setRestaurants] = useState([]);
+const RestaurantSection = ({ restaurants, setRestaurants, filteredRestaurants, setFilteredRestaurants }) => {
     useEffect(() => {
         fetchData();
     }, [])
     const fetchData = async () => {
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.5940499&lng=85.1376051&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.5940947&lng=85.1376051&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
         const json = await data.json();
         const fetchedRestaurants = json?.data?.cards?.[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
-        const fetchedInspirations = json?.data?.cards?.[1]?.card?.card?.gridElements?.infoWithStyle?.info || [];
+
 
         setRestaurants(fetchedRestaurants)
+        setFilteredRestaurants(fetchedRestaurants)
     }
     if (restaurants.length === 0) return (
         <>
@@ -90,12 +90,12 @@ const RestaurantSection = () => {
             <div className="heading">
                 <p>Best Food in Muzaffarpur</p>
                 <button className="btn" onClick={() => {
-                    const updatedRestaurants = restaurants.filter(res => res.info.avgRating > 4.4);
+                    const updatedRestaurants = filteredRestaurants.filter(res => res.info.avgRating >= 4.4);
                     setRestaurants(updatedRestaurants);
                 }}>Ratings 4.4+</button>
             </div>
             <div className="restaurantCardsContainer">
-                <RestaurantCard restaurants={restaurants} />
+                <RestaurantCard filteredRestaurants={filteredRestaurants} />
             </div>
         </>)
 }
