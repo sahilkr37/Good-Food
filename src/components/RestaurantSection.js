@@ -66,7 +66,7 @@ const RestaurantSection = ({ restaurants, setRestaurants, filteredRestaurants, s
     if (restaurants.length === 0) return (
         <>
             <div className="heading">
-                <p>Best Food in Muzaffarpur</p>
+                <p>Best Foods in Muzaffarpur</p>
                 <button className="btn" disabled>Ratings 4.4+</button>
             </div>
             <div className="restaurantCardsContainer">
