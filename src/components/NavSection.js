@@ -1,13 +1,16 @@
 import { useState } from 'react'
+import { Link } from 'react-router'
 const NavSection = ({ restaurants, setRestaurants, filteredRestaurants, setFilteredRestaurants }) => {
 
 
     const [searchText, setSearchText] = useState('')
     return <>
         <div className="navContainer">
-            <div className="logoContainer">
-                <img src="https://img.freepik.com/free-vector/restaurant-logo-template_23-2149493630.jpg?t=st=1753687879~exp=1753691479~hmac=c8e2cbffe9ce959140dccea4037aa995a543b3cc51a9db739994db6d6ce3b3e6&w=1380" alt="Swiggy Logo" className="logo_img" />
-            </div>
+            <Link to={"/"}>
+                <div className="logoContainer">
+                    <img src="https://img.freepik.com/free-vector/restaurant-logo-template_23-2149493630.jpg?t=st=1753687879~exp=1753691479~hmac=c8e2cbffe9ce959140dccea4037aa995a543b3cc51a9db739994db6d6ce3b3e6&w=1380" alt="Swiggy Logo" className="logo_img" />
+                </div>
+            </Link>
             <div className="searchBoxContainer">
                 <div className="location">
                     <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" className="icon" />
@@ -31,7 +34,7 @@ const NavSection = ({ restaurants, setRestaurants, filteredRestaurants, setFilte
             </div>
             <div className="navContents">
 
-                <li><a href="/login">Log In</a></li>
+                <li><Link to={"/login"}>Log In</Link></li>
                 <li><a href="/login">Sign Up</a></li>
             </div>
         </div>

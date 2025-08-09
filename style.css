@@ -256,3 +256,165 @@ li a:hover {
         left: 100%;
     }
 }
+
+/*Restaurant_page*/
+.dish_card {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 16px 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.dish_details {
+    flex: 1;
+    padding-right: 16px;
+}
+
+.dish_name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1c1c1c;
+    margin-bottom: 4px;
+}
+
+.dish_price {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1c1c1c;
+    margin-bottom: 6px;
+}
+
+.dish_info {
+    font-size: 14px;
+    color: #5c5c5c;
+    line-height: 1.4;
+}
+
+.dish_photo_container {
+    position: relative;
+    width: 144px;
+    height: 120px;
+}
+
+.dish_photo {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    position: relative;
+}
+
+.add_button {
+    position: absolute;
+    bottom: -7px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    color: #1ba672;
+    /* Green color */
+    font-weight: 600;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 7px 25px;
+    font-size: 14px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+
+.add_button:hover {
+    background-color: #f2f2f2;
+}
+.restaurant_info_box {
+    border-radius: 20px;
+    background: white;
+    box-shadow: 0px 2px 20px rgba(40, 44, 63, 0.1);
+    padding: 2rem 1rem;
+    margin: 20px 0;
+    position: relative;
+    overflow: hidden;
+    /* border: 2px solid rgb(235, 235, 235); */
+
+}
+
+.restaurant_info_box {
+    position: relative;
+    background: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.05),
+        0 10px 20px rgba(0, 0, 0, 0.08),
+        0 20px 40px rgba(106, 115, 129, 0.15);
+    /* Main bottom glow */
+}
+.restaurant_info_content {
+    position: relative;
+    z-index: 1;
+}
+
+.rating_cost_line {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 15px;
+    color: #3d9a50;
+}
+.rating_text{
+    color: black;
+}
+
+.star_icon {
+    margin-right: 4px;
+    color: #3d9a50;
+}
+
+.dot {
+    margin: 0 8px;
+    color: #999;
+}
+
+.cost_text {
+    color: #1c1c1c;
+}
+
+.cuisine_tags {
+    font-size: 14px;
+    color: #f46608;
+    margin-top: 4px;
+    font-weight: bolder;
+}
+
+.outlet_delivery_row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+    font-size: 14px;
+    color: #333;
+}
+
+.outlet_text {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #1c1c1c;
+}
+
+.circle_icon {
+    font-size: 8px;
+    color: #999;
+}
+
+.dropdown_arrow {
+    font-size: 12px;
+    color: #999;
+}
+
+.delivery_time {
+    color: #555;
+    font-weight: 500;
+}
