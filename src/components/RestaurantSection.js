@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 // import { restaurants as restaurantList } from "../utils/mockData";
 import { restaurantImageLink } from "../utils/constants"
-
+import { Link } from 'react-router';
 
 const RestaurantCard = ({ filteredRestaurants }) => {
 
@@ -21,29 +21,30 @@ const RestaurantCard = ({ filteredRestaurants }) => {
                 } = res.info;
 
                 return (
-
-                    <div className="card" key={id}>
-                        <div className="card-img-container">
-                            <img
-                                src={`${restaurantImageLink}${cloudinaryImageId}`}
-                                alt={name}
-                            />
-                            {aggregatedDiscountInfoV3?.header && (
-                                <div className="offer-badge">
-                                    {aggregatedDiscountInfoV3.header} {aggregatedDiscountInfoV3.subHeader}
-                                </div>
-                            )}
-                        </div>
-                        <div className="card-info">
-                            <h3>{name}</h3>
-                            <div className="rating-time">
-                                <span className="rating">★ {avgRating}</span>
-                                <span>• {sla?.slaString}</span>
+                    <Link to={`/restaurant/${id}`} key={id} className="card-link">
+                        <div className="card" key={id}>
+                            <div className="card-img-container">
+                                <img
+                                    src={`${restaurantImageLink}${cloudinaryImageId}`}
+                                    alt={name}
+                                />
+                                {aggregatedDiscountInfoV3?.header && (
+                                    <div className="offer-badge">
+                                        {aggregatedDiscountInfoV3.header} {aggregatedDiscountInfoV3.subHeader}
+                                    </div>
+                                )}
                             </div>
-                            <p className="cuisines">{cuisines?.join(", ")}</p>
-                            <p className="address">{locality || areaName}</p>
+                            <div className="card-info">
+                                <h3 style={{ color: "black" }}>{name}</h3>
+                                <div className="rating-time">
+                                    <span className="rating">★ {avgRating}</span>
+                                    <span>• {sla?.slaString}</span>
+                                </div>
+                                <p className="cuisines">{cuisines?.join(", ")}</p>
+                                <p className="address">{locality || areaName}</p>
+                            </div>
                         </div>
-                    </div>
+                    </Link>
                 );
             })}
         </>

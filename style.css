@@ -129,6 +129,9 @@ li a:hover {
     /* For Chrome, Safari */
 }
 /* ReataurantSection */
+.card-link{
+    text-decoration: none;
+}
 .restaurantCardsContainer{
     display: flex;
     flex-wrap: wrap;
@@ -417,4 +420,65 @@ li a:hover {
 .delivery_time {
     color: #555;
     font-weight: 500;
+}
+.menu-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+        color: grey;
+    font-size: 24px;
+}
+.menu-logo {
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    position: relative;
+    margin: 20px 0;
+    color: #666;
+}
+
+/* Decorative lines around Menu */
+.menu-logo::before,
+.menu-logo::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 1px;
+    background-color: #ccc;
+}
+
+.menu-logo::before {
+    left: calc(50% - 70px);
+}
+
+.menu-logo::after {
+    right: calc(50% - 70px);
+}
+
+/* Search Box */
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-input {
+    width: 300px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 25px 0 0 25px;
+    background-color: #f5f5f5;
+    font-size: 14px;
+    outline: none;
+}
+
+.search-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 0 25px 25px 0;
+    background-color: #f5f5f5;
+    cursor: pointer;
+    font-size: 16px;
 }

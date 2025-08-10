@@ -40,7 +40,7 @@ const appRouter = createBrowserRouter([
                 path: "/login",
                 element: <FooterSectionClass name={"Sahil kumar"} gmail={"sahilkumar012004@gmail.com"} />
             }, {
-                path: "/res",
+                path: "/restaurant/:id",
                 element: <Restaurant_page />
             }
         ],
