@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, lazy, Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import NavSection from "./components/NavSection"
 import FooterSection from "./components/FooterSection"
-import FooterSectionClass from "./components/FooterSectionClass";
+
 import HomePage from "./components/HomePAge";
 import Error from "./components/Error";
 import Restaurant_page from "./components/Restaurant_page"
 import { Outlet, useLocation } from "react-router";
 
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router";
+
+const Footer = lazy(() => import("./components/FooterSectionClass"))
 
 
 const App = () => {
@@ -38,7 +40,7 @@ const appRouter = createBrowserRouter([
         children: [
             {
                 path: "/login",
-                element: <FooterSectionClass name={"Sahil kumar"} gmail={"sahilkumar012004@gmail.com"} />
+                element: (<Suspense fallback={<div className="heading">Lazy Loading....</div>}><Footer name={"Sahil kumar"} gmail={"sahilkumar012004@gmail.com"} /></Suspense>)
             }, {
                 path: "/restaurant/:id",
                 element: <Restaurant_page />
