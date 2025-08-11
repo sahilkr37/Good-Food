@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { restaurantImageLink } from "../utils/constants";
 import { ShimmerCircularImage } from "react-shimmer-effects";
+import { inspirationObjects } from "../utils/constants";
 
 const InspirationCard = ({ imageId, name }) => {
     return (
@@ -18,7 +19,7 @@ const InspirationSection = () => {
     }, []);
 
     const fetchData = async () => {
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.5940499&lng=85.1376051&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const data = await fetch(inspirationObjects);
         const json = await data.json();
         const fetchedInspirations = json?.data?.cards?.[0]?.card?.card?.gridElements?.infoWithStyle?.info || [];
 

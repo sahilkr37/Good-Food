@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 // import { restaurants as restaurantList } from "../utils/mockData";
 import { restaurantImageLink } from "../utils/constants"
 import { Link } from 'react-router';
+import { restaurantListObjects } from "../utils/constants"
 
 const RestaurantCard = ({ filteredRestaurants }) => {
 
@@ -56,7 +57,7 @@ const RestaurantSection = ({ restaurants, setRestaurants, filteredRestaurants, s
         fetchData();
     }, [])
     const fetchData = async () => {
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.5940947&lng=85.1376051&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const data = await fetch(restaurantListObjects);
         const json = await data.json();
         const fetchedRestaurants = json?.data?.cards?.[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
 
