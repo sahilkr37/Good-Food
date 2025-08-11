@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react'
 import { restaurantImageLink } from "../utils/constants"
 import { Link } from 'react-router';
 import { restaurantListObjects } from "../utils/constants"
+import useInternetStatus from '../utils/useInternetStatus';
+
 
 const RestaurantCard = ({ filteredRestaurants }) => {
 
@@ -59,12 +61,18 @@ const RestaurantSection = ({ restaurants, setRestaurants, filteredRestaurants, s
     const fetchData = async () => {
         const data = await fetch(restaurantListObjects);
         const json = await data.json();
-        const fetchedRestaurants = json?.data?.cards?.[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
+        const cards = json?.data?.cards || [];
+        const restaurantCard = cards.find(
+            (c) => c?.card?.card?.gridElements?.infoWithStyle?.restaurants
+        );
+        const fetchedRestaurants = restaurantCard?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
+
 
 
         setRestaurants(fetchedRestaurants)
         setFilteredRestaurants(fetchedRestaurants)
     }
+    if (useInternetStatus() === false) return <div className='heading'>It looks like you are offline!</div>
     if (restaurants.length === 0) return (
         <>
             <div className="heading">
